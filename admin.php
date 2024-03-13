@@ -258,6 +258,29 @@ th {
             });
         }
     }
+        function hapus(id_login) {
+      
+      var confirmDelete = confirm("Apakah Anda yakin ingin menghapus user?");
+
+      if (confirmDelete) {
+
+          $.ajax({
+              url: "menghapus.php",
+              type: "POST",
+              data: {
+                  id_login: id_login
+              },
+              success: function(response) {
+
+                  alert(response);
+                  location.reload();
+              },
+              error: function(xhr, status, error) {
+                  console.error(xhr.responseText);
+              }
+          });
+      }
+  }
 </script>
 
 </html>
